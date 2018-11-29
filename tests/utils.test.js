@@ -42,11 +42,20 @@ it("should return the area of a circle of radius 5", function() {
 // ========================================================
 
 it("Should create a new (object) Item with name and price", function() {
-    const item = cart.createItem('Meow Mix', 20);
-    
+    const catfood = utils.createItem('Meow Mix', 20);
+    should.exist(catfood);
+    catfood.should.be.an('object');
+    catfood.should.have.property('name');
+    catfood.name.should.have.lengthOf(8);
+    catfood.should.have.property('price');
+    catfood.price.should.be.equal(20);
 });
 
-it("Should return an array containing all items in cart");
+it("Should return an array containing all items in cart", function() {
+    const allItems = utils.allItems();
+    should.exist(allItems);
+    allItems.should.be.an('array');
+});
 
 it("Should add a new item to the shopping cart");
 
